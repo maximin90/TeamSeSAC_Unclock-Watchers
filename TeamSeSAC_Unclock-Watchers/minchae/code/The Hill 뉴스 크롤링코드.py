@@ -13,7 +13,7 @@ headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/
 # data_list = []
 
 # 625페이지부터 1페이지까지 역순으로 크롤링
-for page_number in range(124,200,1):
+for page_number in range(125,200,1):
     print(page_number)
     URL = f'https://thehill.com/page/{page_number}/?s=interest+rate&submit=Search&order=desc&orderby=date'
 
