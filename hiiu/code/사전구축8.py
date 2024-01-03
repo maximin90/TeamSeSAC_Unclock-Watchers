@@ -3,10 +3,10 @@ import pandas as pd
 
 # 파일 경로 설정
 desktop_path = os.path.join(os.path.expanduser("~"), "Desktop")
-file_name = 'chunk_1.csv'
+file_name = 'ngram_merged.csv'
 file_path = os.path.join(desktop_path, file_name)
 ngram_df = pd.read_csv(file_path)
-print(ngram_df)
+
 # 상승과 하락 데이터 필터링
 positive_df = ngram_df[ngram_df['label'] == '상승']
 negative_df = ngram_df[ngram_df['label'] == '하락']
@@ -49,11 +49,11 @@ positive_dictionary_df.to_csv(os.path.join(desktop_path, 'final_positive.csv'), 
 negative_dictionary_df.to_csv(os.path.join(desktop_path, 'final_negative.csv'), index=False)
 
 ### 작은 부분으로 나누어 읽기### 그냥 하면 메모리 에러 뜹니다ㅜㅜ#########################
-chunk_size = int(len(ngram_df) / 10)
+chunk_size = int(len(ngram_df) / 2)
 chunks = pd.read_csv(file_path, chunksize=chunk_size)
 
 # 저장할 파일 이름 및 경로 설정
-output_path = os.path.join(desktop_path, 'chunked_data2')
+output_path = os.path.join(desktop_path, 'chunked_data3')
 
 # 디렉토리가 없다면 생성
 if not os.path.exists(output_path):
